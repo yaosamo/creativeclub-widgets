@@ -1,0 +1,244 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  width: 100%;
+  font-family: 'Departure Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  background: #191a1e;
+  color: #f0f2f7;
+}
+
+.stage {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.04), transparent 55%),
+    radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.025), transparent 45%),
+    #16171b;
+}
+
+.tool-modal {
+  width: min(360px, 92vw);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  background: #0d0f13;
+  box-shadow:
+    0 12px 26px rgba(0, 0, 0, 0.38),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.tool-topbar {
+  height: 44px;
+  background: #6a6a6d;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.36);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.left-pack {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.left-pack p {
+  margin: 0;
+  font-size: 32px;
+  line-height: 0;
+  transform: translateY(-2px) scaleY(0.34);
+  transform-origin: left center;
+  letter-spacing: 0.02em;
+  color: #f5f7fb;
+}
+
+.orange-dot {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: #efa147;
+  border: 3px solid #2f3138;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.24);
+}
+
+.right-pack {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 2px solid #24262d;
+  background: #d7d8dc;
+  color: #101216;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.tool-body {
+  position: relative;
+  padding: 12px;
+  background: linear-gradient(180deg, #0a0c10, #090b0f);
+}
+
+.mini-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.mini-controls span {
+  width: 34px;
+  height: 26px;
+  border-radius: 2px;
+  background: #202329;
+  border: 1px solid #111318;
+}
+
+.corner-icon {
+  position: absolute;
+  right: 12px;
+  top: 13px;
+  width: 27px;
+  height: 25px;
+  border: 1px solid #3d414a;
+}
+
+.corner-icon::after {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 7px;
+  width: 23px;
+  height: 22px;
+  border: 1px solid #3d414a;
+  background: transparent;
+}
+
+.cube-area {
+  margin-top: 18px;
+  position: relative;
+  background: #0b0d11;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  height: 250px;
+}
+
+.cube-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.guide-grid line {
+  stroke: rgba(255, 255, 255, 0.28);
+  stroke-width: 3;
+  stroke-dasharray: 3 9;
+  stroke-linecap: round;
+}
+
+.face {
+  stroke: rgba(255, 255, 255, 0.16);
+  stroke-width: 1;
+}
+
+.face.top {
+  fill: rgba(255, 255, 255, 0.05);
+}
+
+.face.left {
+  fill: rgba(255, 255, 255, 0.085);
+}
+
+.face.right {
+  fill: rgba(255, 255, 255, 0.11);
+}
+
+.axis {
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.axis-x {
+  stroke: #5ec9ff;
+}
+
+.axis-y {
+  stroke: #f6cf52;
+}
+
+.axis-z {
+  stroke: #55c49a;
+}
+
+.target-knob {
+  position: absolute;
+  left: 66%;
+  top: 41%;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 0;
+  background: #ecefdf;
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.14);
+  cursor: grab;
+}
+
+.target-knob::before {
+  content: '';
+  position: absolute;
+  inset: 9px;
+  border: 5px solid #16181d;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 9px;
+}
+
+.readout {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px 14px;
+  padding: 0 2px 3px;
+}
+
+.readout p {
+  margin: 0;
+  color: #f2f4f8;
+  font-size: 17px;
+  letter-spacing: 0.01em;
+}
+
+.axis-key {
+  margin-right: 4px;
+}
+
+.axis-key.x,
+#xVal { color: #5ec9ff; }
+.axis-key.y,
+#yVal { color: #f6cf52; }
+.axis-key.z,
+#zVal { color: #55c49a; }
+.axis-key.w,
+#wVal { color: #f5f7fb; }
+
+@media (max-width: 480px) {
+  .tool-modal {
+    width: 100%;
+  }
+
+  .readout p {
+    font-size: 15px;
+  }
+}
