@@ -10,6 +10,8 @@ body {
   font-family: 'Departure Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   background: #191a1e;
   color: #f0f2f7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .stage {
